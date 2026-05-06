@@ -1,0 +1,19 @@
+# Angular (frontend)
+fe/node_modules/
+fe/dist/
+fe/.angular/
+
+# Spring Boot (backend)
+be/target/
+be/*.log
+
+# Environment
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
