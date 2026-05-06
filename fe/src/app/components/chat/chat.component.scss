@@ -1,0 +1,80 @@
+.chat-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+}
+
+.chat-toggle-btn {
+  background: linear-gradient(90deg, #2A78C6 0%, #24B3B2 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+  &:hover { transform: scale(1.05); }
+}
+
+.chat-window {
+  width: 360px;
+  height: 500px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .chat-header {
+    background: linear-gradient(90deg, #2A78C6 0%, #24B3B2 100%);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    cursor: grab;
+     &:active {
+     cursor: grabbing; /* Đổi thành bàn tay nắm lại khi bấm chuột xuống */
+    }
+    .close-btn { background: none; border: none; color: white; cursor: pointer; font-size: 18px; }
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .msg-user, .msg-bot { display: flex; }
+    .msg-user { justify-content: flex-end; }
+    
+    .msg-content {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 15px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .msg-user .msg-content { background: linear-gradient(90deg, #2A78C6 0%, #24B3B2 100%); color: white; border-bottom-right-radius: 2px; }
+    .msg-bot .msg-content { background: #e9ecef; color: #333; border-bottom-left-radius: 2px; }
+    .typing { font-style: italic; color: #888; }
+  }
+
+  .chat-footer {
+    display: flex;
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    
+    input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none; }
+    button { background: none; border: none; font-size: 20px; color: #2A78C6; cursor: pointer; margin-left: 10px;}
+  }
+}

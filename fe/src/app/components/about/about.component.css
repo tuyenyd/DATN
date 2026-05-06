@@ -1,0 +1,10 @@
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(42, 120, 198, 0.15) !important;
+  border-color: #24B3B2 !important;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}

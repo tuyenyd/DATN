@@ -1,0 +1,29 @@
+<div class="chat-container">
+  <!-- Nút bong bóng chat -->
+  <button class="chat-toggle-btn" (click)="toggleChat()" *ngIf="!isOpen">
+    <i class="fa fa-comments"></i> <span>Tư vấn AI</span>
+  </button>
+
+  <div class="chat-window" *ngIf="isOpen" cdkDrag>
+    <div class="chat-header" cdkDragHandle>
+      <div class="header-title">🤖 Trợ lý NexoHome</div>
+      <button class="close-btn" (click)="toggleChat()">✖</button>
+    </div>
+    
+    <div class="chat-body" #chatBody>
+      <div *ngFor="let msg of messages" 
+           [ngClass]="{'msg-user': msg.sender === 'user', 'msg-bot': msg.sender === 'bot'}">
+        <div class="msg-content">{{ msg.text }}</div>
+      </div>
+      
+      <div class="msg-bot" *ngIf="isLoading">
+        <div class="msg-content typing">Đang phân tích ...</div>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Hỏi tôi về sản phẩm..."/>
+      <button (click)="sendMessage()">➤</button>
+    </div>
+  </div>
+</div>

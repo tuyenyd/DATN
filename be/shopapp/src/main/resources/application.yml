@@ -1,0 +1,52 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/shopapp?useSSL=false
+    #url: jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    #password:
+    password: 123#@!ms
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    default-locale: en
+api:
+  prefix: api/v1
+jwt:
+  expiration: 2592000 #30 days = 30 * 24 * 60 * 60
+  secretKey: GXnigQfkBnsEwRFDfpAGcY+cfO3YRhH54a3pH2cCo/Q=
+  expiration-refresh-token: 5184000
+
+payment:
+  vnPay:
+    url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+    tmnCode: 5DOWRXK8
+    secretKey: MK255E57N9X4DGX9RY4MJDBJTL93ESW6
+    returnUrl: http://localhost:4200/
+    version: 2.1.0
+    command: pay
+    orderType: other
+  payOS:
+    clientId: e2084446-12d8-458c-bae3-1bc071cad8bc
+    apiKey: 05955743-9248-4df1-aff9-deb5f46f272f
+    checksumKey: e24eaca73c9dc20e55552a91c4aaa0606c62488bd6e6d0c45abefed178d2b3a8
+    returnUrl: http://localhost:4200/payment/success
+    cancelUrl: http://localhost:4200/payment/cancel
+
+web:
+  resources:
+    static-locations: file:./uploads/
